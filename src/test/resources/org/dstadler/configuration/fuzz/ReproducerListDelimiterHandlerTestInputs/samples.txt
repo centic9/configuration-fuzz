@@ -1,0 +1,102 @@
+# An assorted list of valid and invalid filters to "seed" the fuzzing and allow it to quickly
+# come up with slight variations which might trigger a bug in the parsing logic
+
+int32Field = 12 or (boolField = true and stringField contains 'Hello') or jsonField.key1 = '123' and int64_array contains 4711
+int32Field
+int32Field =
+int32Field = 12
+or
+(boolField = true and stringField contains 'Hello')
+
+int16Field = 32
+int32Field = 54
+int64Field = 23
+float32Field = 23.12
+float32Field = -23.12
+float32Field = +23.12
+float32Field = 23.1223242.2323
+float32Field = 23.1223242-232
+float32Field = 23.12E10
+float32Field = 23.12e10
+float64Field = 999999965.12
+float64Field = 099999999999999999999999999999999999999999999999999999999999999999965.12
+stringField = abc
+upperStringField = aösdasdg
+upperStringField = ABCD
+valueStringField = lasfdkljaf
+valueStringField = ALJKSADJWIER
+typeStringField = type
+operatorStringField = operator bla typeStringField = type 
+operatorStringField = operator 
+boolField = true
+boolField = false
+boolField = blaad
+datetimeField = 225245
+datetimeField = 2024-05-23
+localDateField = 2024-05-23
+localTimeField = 12:43
+localTimeField = 12:43:23
+localTimeField = 12:43:23.234
+localTimeField = 12:43:23.2"%"Q$T)§Q
+localDateTimeField = 2024-05-23T12:43:23
+jsonField =  { "field": "value" }
+jsonField.key1 = value
+arrayField = [ arc, arr, ard ]
+int16Array = [ 1, 2, 3 ]
+int32Array = [ 238232787283, 238387373733. 3488747373 ]
+int64Array = [ 38888888888888, 289898989898989898989, 283888888 ]
+int64Array = [ 38888888888888, 28989898989, 283888888 ]
+float32Array = [ 234.2342, 23424.1224 ]
+float64Array = [ 2323122323.12341, 23452.32323423 ]
+stringArray = [ a, b, c ]
+stringArray = [ "a", "b", "c" ]
+boolArray = ( true, false )
+boolArray = [ true, false ]
+boolArray = [ true, false, false ]
+boolArray = [ true, false, null ]
+datetimeArray = [ 2024-05-23 ]
+localDateArray", LOCAL_DATE);
+localTimeArray", LOCAL_TIME);
+localDateTimeArray", LOCAL_DATE_TIME);
+jsonArray", JSON);
+arrayArray", ARRAY);
+customStringField = asdlkjasd
+upperStringField = ölkasdjlafj
+upperStringField = ANBJSD
+upperStringField = "§()"§$(
+valueStringField = asdlkasjdf
+valueStringField = ABCJD
+typeStringField = 23873
+typeStringField = ABADJSD
+operatorStringField = bla or int
+operatorStringField = or bla int32Field = 12
+<missing IDENTIFIER> = bla
+nullStringField = asdf
+emptyStringField = lkasd
+nullValueStringField = lkajsd
+emptyValueStringField = löarf
+(
+()
+(*)
+( and )
+(bla)
+((arrayField contains''))
+a contains ''
+a contains '
+a contains "
+a contains ""
+"a contains ''"
+list contains blasdfa
+int16Field = 32
+int16Field > 32
+int16Field < 32
+int16Field in (23, 42, 12)
+int16Field = 30
+stringField = 'Konrad' and stringField = 'Zuse'
+stringField = 'user1' and datetimeField >= '2022-02-06T11:00:00Z'
+stringField starts-with 'abc' and not (boolField = false or boolField = true)
+nullValueStringField < 90.5
+distance >= 1.0E4
+(stringField contains 's\') and typeStringField = 'dashboard'
+(stringField contains 's\\') and typeStringField = 'dashboard'
+(stringField contains '\\') and typeStringField = 'dashboard'

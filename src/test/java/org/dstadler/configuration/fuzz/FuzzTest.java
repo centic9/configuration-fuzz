@@ -15,30 +15,6 @@ class FuzzTest {
 		Fuzz.fuzzerTestOneInput(new byte[] {'P', 'K'});
 	}
 
-	@Test
-	public void testWithValidArchive() throws IOException {
-		byte[] bytes = FileUtils.readFileToByteArray(new File("src/test/resources/bla.tar"));
-		Fuzz.fuzzerTestOneInput(bytes);
-	}
-
-	@Test
-	public void testWithValidCompressedArchive() throws IOException {
-		byte[] bytes = FileUtils.readFileToByteArray(new File("src/test/resources/bla.tar.gz"));
-		Fuzz.fuzzerTestOneInput(bytes);
-	}
-
-	@Test
-	public void testWithValidCompressedFile() throws IOException {
-		byte[] bytes = FileUtils.readFileToByteArray(new File("src/test/resources/bla.pack"));
-		Fuzz.fuzzerTestOneInput(bytes);
-	}
-
-	@Test
-	public void testWithValidBrotliCompressedFile() throws IOException {
-		byte[] bytes = FileUtils.readFileToByteArray(new File("src/test/resources/brotli.testdata.compressed"));
-		Fuzz.fuzzerTestOneInput(bytes);
-	}
-
 	@Disabled("Local test for verifying a slow run")
 	@Test
 	public void testSlowUnit() throws IOException {
