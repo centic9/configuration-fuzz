@@ -13,11 +13,11 @@ set -eu
 
 
 # extract jar-files of Apache Commons Compress
-mkdir -p build/compressfiles
-cd build/compressfiles
+mkdir -p build/confiugrationFiles
+cd build/confiugrationFiles
 
 # then unpack the class-files
-for i in `find ../runtime -name commons-compress-*.jar`; do
+for i in `find ../runtime -name commons-configuration-*.jar`; do
   echo $i
   unzip -o -q $i
 done
@@ -48,8 +48,8 @@ mkdir -p build/jacoco
 
 # Finally create the JaCoCo report
 java -jar build/jacococli.jar report build/jacoco/corpus.exec \
- --classfiles build/compressfiles \
- --sourcefiles /opt/apache/commons-compress/git/src/main/java/ \
+ --classfiles build/confiugrationFiles \
+ --sourcefiles /opt/apache/commons-configuration/git/src/main/java/ \
  --html build/reports/jacoco
 
 

@@ -26,9 +26,9 @@ Create an empty corpus directory
 
     mkdir corpus
 
-You can add documents from other testing-corpora as well. Valid documents
-as well as slightly broken ones are good sources as this helps the fuzzer 
-to come up with interesting new cases. 
+Because the fuzz-targets use a `FuzzedDataProvider` it is not easily
+possible to provide a "seed" corpus, but Jazzer will come up with 
+useful corpus-files automatically anyway.
 
 Download Jazzer from the [releases page](https://github.com/CodeIntelligenceTesting/jazzer/releases), 
 choose the latest version and select the file `jazzer-<os>-<version>.tar.gz`
@@ -37,9 +37,9 @@ Unpack the archive:
 
     tar xzf jazzer-*.tar.gz
 
-Invoke the fuzzing:
+Invoke the fuzzing for `ListDelimiterHandlerFuzz`:
 
-    ./jazzer --cp=build/libs/configuration-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.configuration.fuzz.Fuzz -rss_limit_mb=4096 corpus
+    ./jazzer --cp=build/libs/configuration-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.configuration.fuzz.ListDelimiterHandlerFuzz -rss_limit_mb=4096 corpus
 
 In this mode Jazzer will stop whenever it detects an unexpected exception 
 or crashes.
